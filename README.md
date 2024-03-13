@@ -28,7 +28,7 @@ mv ~/.cache/nvim{,.bak}
 ```bash
 git clone https://github.com/404GH0ST/my-nvchad-configuration.git ~/.config/nvim && nvim
 ```
-- After Lazy finishes installing plugins, make sure to run `:MasonInstallAll` to install LSP stuff.
+- After Lazy finishes installing plugins, make sure to run `:MasonInstallAll` to install LSP and other stuff.
 
 ### PowerShell LSP
 To fully configure the PowerShell LSP, we need to download and extract PowerShellEditorServices.zip from the [releases](https://github.com/PowerShell/PowerShellEditorServices/releases) to `~/LSP/PowerShellEditorServices`.
