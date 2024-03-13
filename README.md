@@ -7,6 +7,7 @@ Neovim configuration for development in Rust, Python, Go, C, Javascript, PHP, lu
 ![rust_lsp](https://i.ibb.co/JcdM632/image.png)
 
 ## Installation
+- Make sure you have `composer`, `go`, `npm`, and `pip` installed so that Mason can download LSP, Linter, and other stuff.
 - Install the Neovim nightly build because the stable build doesn't support Inlay Hint.
 - I suggest using [bob](https://github.com/MordechaiHadad/bob) so that you can switch between stable and nightly builds.
 ```bash
