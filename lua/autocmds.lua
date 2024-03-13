@@ -1,11 +1,9 @@
----@type ChadrcConfig
-local M = {}
+require "nvchad.autocmds"
 
-M.ui = { theme = 'onedark' }
-M.plugins = "custom.plugins"
-M.mappings = require "custom.mappings"
+local autocmd = vim.api.nvim_create_autocmd
 
-vim.api.nvim_create_autocmd("LspAttach", {
+-- Auto enable Inlay_hint
+autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -14,5 +12,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end
 })
-
-return M
