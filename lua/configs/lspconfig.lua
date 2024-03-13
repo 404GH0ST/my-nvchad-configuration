@@ -25,7 +25,7 @@ end
 lspconfig.powershell_es.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  bundle_path = '~/LSP/PowerShellEditorServices',
+  cmd = {'pwsh', '-NoLogo', '-NoProfile', '-Command', "~/LSP/PowerShellEditorServices/PowerShellEditorServices/Start-EditorServices.ps1", '-Stdio'},
   settings = {
     powershell = {
       codeFormatting = {
@@ -61,15 +61,6 @@ lspconfig.pyright.setup {
     },
   },
 }
-
--- lspconfig.solidity.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   cmd = { 'nomicfoundation-solidity-language-server', '--stdio' },
---   filetypes = { 'solidity' },
---   root_dir = util.find_git_ancestor,
---   single_file_support = true,
--- }
 
 lspconfig.gopls.setup {
   on_attach = on_attach,
