@@ -30,6 +30,7 @@ return {
         "goimports",
         "golines",
         "gofumpt",
+        "delve",
         "tailwindcss-language-server",
         "typescript-language-server",
         "biome",
