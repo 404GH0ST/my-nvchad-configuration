@@ -1,6 +1,18 @@
 local cmp = require "cmp"
+return {
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require "configs.conform"
+    end,
+  },
 
-local plugins =  {
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      git = { enable = true },
+    },
+  },
   {
     "williamboman/mason.nvim",
     opts = {
@@ -43,12 +55,9 @@ local plugins =  {
     opts = {
       inlay_hints = { enabled = true },
     },
-    init = function()
-      require("core.utils").load_mappings("inlay_hint")
-    end,
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require "nvchad.configs.lspconfig".defaults()
+      require "configs.lspconfig"
     end,
   },
   {
@@ -57,14 +66,11 @@ local plugins =  {
     dependencies = "neovim/nvim-lspconfig",
     ft = { 'rust' },
     config = function()
-      require "custom.configs.rustaceanvim"
+      require "configs.rustaceanvim"
     end,
   },
   {
     "mfussenegger/nvim-dap",
-    init = function()
-      require("core.utils").load_mappings("dap")
-    end,
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -94,7 +100,6 @@ local plugins =  {
     config = function(_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings("dap_python")
     end,
   },
   {
@@ -106,7 +111,6 @@ local plugins =  {
     },
     config = function (_, opts)
       require("dap-go").setup(opts)
-      require("core.utils").load_mappings("dap_go")
     end
   },
   {
@@ -119,14 +123,13 @@ local plugins =  {
         sources = { { name = "crates" }}
       })
       crates.show()
-      require("core.utils").load_mappings("crates")
     end,
   },
   {
     "andweeb/presence.nvim",
     event = "VeryLazy",
     config = function()
-      require("presence").setup(require "custom.configs.presence")
+      require("presence").setup(require "configs.presence")
     end,
   },
   {
@@ -146,7 +149,7 @@ local plugins =  {
   {
     "hrsh7th/nvim-cmp",
     opts = function()
-      local M = require "plugins.configs.cmp"
+      local M = require "nvchad.configs.cmp"
       M.completion.completeopt = "menu,menuone,noselect"
       M.mapping["<CR>"] = cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
@@ -163,14 +166,14 @@ local plugins =  {
       "go",
     },
     opts = function()
-      require "custom.configs.none-ls"
+      require "configs.none-ls"
     end,
   },
   {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
   config = function()
-    require('dashboard').setup(require "custom.configs.dashboard")
+    require('dashboard').setup(require "configs.dashboard")
 
   end,
   dependencies = { {'nvim-tree/nvim-web-devicons'}}
@@ -184,7 +187,6 @@ local plugins =  {
   },
   config = function (_, opts)
     require("gopher").setup(opts)
-    require("core.utils").load_mappings("gopher")
   end,
   build = function ()
     vim.cmd [[silent! GoInstallDeps]]
@@ -206,7 +208,7 @@ local plugins =  {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function ()
-      opts = require "plugins.configs.treesitter"
+      opts = require "nvchad.configs.treesitter"
       opts.ensure_installed = {
         "lua",
         "python",
@@ -250,5 +252,3 @@ local plugins =  {
     end
   }
 }
-
-return plugins

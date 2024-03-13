@@ -1,7 +1,18 @@
-local M = {}
+require "nvchad.mappings"
 
-M.dap = {
-  plugin = true,
+-- add yours here
+
+local map = vim.keymap.set
+
+map("n", ";", ":", { desc = "CMD enter command mode" })
+
+map("n", "<leader>fm", function()
+  require("conform").format()
+end, { desc = "File Format with conform" })
+
+map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
+
+local mappings = {
   n = {
     ["<leader>db"] = {
       "<cmd> DapToggleBreakpoint <CR>",
@@ -18,36 +29,18 @@ M.dap = {
         sidebar.open();
       end,
       "Open debugging sidebar"
-    }
-  }
-}
-
-M.crates = {
-  plugin = true,
-  n = {
+    },
     ["<leader>rcu"] = {
       function ()
         require('crates').upgrade_all_crates()
       end,
       "update crates"
-    }
-  }
-}
-
-M.dap_python = {
-  plugin = true,
-  n = {
+    },
     ["<leader>dpr"] = {
       function ()
         require("dap-python").test_method()
       end
-    }
-  }
-}
-
-M.dap_go = {
-  plugin = true,
-  n = {
+    },
     ["<leader>dgt"] = {
       function ()
         require("dap-go").debug_test()
@@ -59,30 +52,15 @@ M.dap_go = {
         require("dap-go").debug_last()
       end,
       "Debug last go test"
-    }
-  }
-}
-
-M.gopher = {
-  plugin = true,
-  n = {
+    },
     ["<leader>gsj"] = {
       "<cmd> GoTagAdd json <CR>",
       "Add json struct tags"
     },
-    {
-      ["<leader>gsy"] = {
+    ["<leader>gsy"] = {
         "<cmd> GoTagAdd yaml <CR>",
         "Add yaml struct tags"
-      }
-    }
-  }
-}
-
-
-M.inlay_hint = {
-  plugin = true,
-  n = {
+    },
     ["<leader>ih"] = {
       function()
         vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
@@ -91,4 +69,9 @@ M.inlay_hint = {
     },
   }
 }
-return M
+
+for mode, maps in pairs(mappings) do
+  for key, val in pairs(maps) do
+    map(mode, key, val[1], { desc = val[2]})
+  end
+end
