@@ -13,6 +13,10 @@ local servers = {
   "solidity_ls_nomicfoundation",
   "solidity_ls",
   "lemminx",
+  "html",
+  "htmx",
+  "jsonls",
+  "templ",
 }
 
 for _, lsp in ipairs(servers) do
