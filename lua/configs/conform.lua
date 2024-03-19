@@ -11,11 +11,13 @@ local options = {
 		go = { "gofumpt", "goimports-reviser", "golines" },
 		javascript = { "biome" },
 		c = { "clang_format" },
+		cpp = { "clang_format" },
 		python = { "ruff_format" },
 		sh = { "shfmt" },
 		-- shfmt doesn't support zsh yet
 		-- zsh = { "shfmt" },
 		xml = { "xmlformat" },
+		html = { "htmlbeautifier" },
 	},
 }
 

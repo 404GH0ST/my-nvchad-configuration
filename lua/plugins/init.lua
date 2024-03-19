@@ -2,7 +2,7 @@ local cmp = require("cmp")
 return {
 	{
 		"stevearc/conform.nvim",
-		lazy = false,
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("configs.conform")
 		end,
@@ -15,50 +15,9 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
-		opts = {
-			ensure_installed = {
-				"lua-language-server",
-				"rust-analyzer",
-				"vscode-solidity-server",
-				"nomicfoundation-solidity-language-server",
-				"mypy",
-				"ruff",
-				"ruff-lsp",
-				"pyright",
-				"debugpy",
-				"gopls",
-				"goimports-reviser",
-				"golines",
-				"gofumpt",
-				"delve",
-				"tailwindcss-language-server",
-				"typescript-language-server",
-				"biome",
-				"clangd",
-				"clang-format",
-				"cpplint",
-				"bash-language-server",
-				"shfmt",
-				"ansible-language-server",
-				"ansible-lint",
-				"dockerfile-language-server",
-				"docker-compose-language-service",
-				"hadolint",
-				"intelephense",
-				"phpstan",
-				"php-cs-fixer",
-				"phpcbf",
-				"lemminx",
-				"xmlformatter",
-				"html-lsp",
-				"htmx-lsp",
-				"htmlhint",
-				"templ",
-				"json-lsp",
-				"jsonlint",
-				"htmlbeautifier",
-			},
-		},
+		opts = function()
+			return require("configs.mason")
+		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -124,6 +83,13 @@ return {
 		end,
 	},
 	{
+		"mfussenegger/nvim-lint",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("configs.nvim-lint")
+		end,
+	},
+	{
 		"saecki/crates.nvim",
 		ft = { "toml" },
 		config = function(_, opts)
@@ -167,16 +133,6 @@ return {
 			})
 			table.insert(M.sources, { name = "crates" })
 			return M
-		end,
-	},
-	{
-		"nvimtools/none-ls.nvim",
-		ft = {
-			"python",
-			"go",
-		},
-		opts = function()
-			require("configs.none-ls")
 		end,
 	},
 	{
@@ -256,6 +212,8 @@ return {
 				"toml",
 				"xml",
 				"yaml",
+				"vim",
+				"vimdoc",
 			}
 			return opts
 		end,

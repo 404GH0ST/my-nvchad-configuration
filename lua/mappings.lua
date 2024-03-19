@@ -67,6 +67,12 @@ local mappings = {
 			end,
 			"Toggle inlay hint",
 		},
+		["<leader>lt"] = {
+			function()
+				require("lint").try_lint()
+			end,
+			"Trigger linting for current file",
+		},
 	},
 }
 
