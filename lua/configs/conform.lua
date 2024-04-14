@@ -7,7 +7,7 @@ local options = {
 
 	formatters_by_ft = {
 		lua = { "stylua" },
-		php = { "php_cs_fixer", "phpcbf" },
+		php = { "php_cs_fixer" },
 		go = { "gofumpt", "goimports", "golines" },
 		javascript = { "biome" },
 		c = { "clang_format" },
