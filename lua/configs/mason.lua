@@ -34,7 +34,6 @@ local opt = {
 		"intelephense",
 		"phpstan",
 		"php-cs-fixer",
-		"phpcbf",
 		"lemminx",
 		"xmlformatter",
 		"html-lsp",
