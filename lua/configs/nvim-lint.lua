@@ -1,7 +1,7 @@
 local options = {
-	javascript = { "biome" },
-	json = { "biome" },
-	typescript = { "biome" },
+	javascript = { "biomejs" },
+	json = { "biomejs" },
+	typescript = { "biomejs" },
 	c = { "cpplint" },
 	cpp = { "cpplint" },
 	docker = { "hadolint" },
