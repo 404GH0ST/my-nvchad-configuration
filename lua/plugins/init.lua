@@ -102,10 +102,10 @@ return {
 		end,
 	},
 	{
-		"andweeb/presence.nvim",
+		"404GH0ST/neocord",
 		event = "VeryLazy",
 		config = function()
-			require("presence").setup(require("configs.presence"))
+			require("neocord").setup(require("configs.neocord"))
 		end,
 	},
 	{
