@@ -1,6 +1,6 @@
 local opts = {
 	-- General options
-	logo = "https://i.pinimg.com/736x/96/01/33/96013371e5deb2738dd5600d766a80aa.jpg", -- "auto" or url
+	logo = "auto", -- "auto" or url
 	logo_tooltip = nil, -- nil or string
 	main_image = "logo", -- "language" or "logo"
 	-- client_id = "1157438221865717891", -- Use your own Discord application client id (not recommended)
