@@ -12,7 +12,7 @@ local opts = {
 	global_timer = true, -- if set true, timer won't update when any event are triggered
 
 	-- Rich Presence text options
-	custom_distro_text = "Woof woof 😊", -- Set custom distro name when logo is hovered, string or nil
+	custom_distro_text = nil, -- Set custom distro name when logo is hovered, string or nil
 	editing_text = "Editing %s", -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
 	file_explorer_text = "Browsing %s", -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
 	git_commit_text = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)
