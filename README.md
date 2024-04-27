@@ -14,6 +14,7 @@ Neovim configuration for development in Rust, Python, Go, C, Javascript, PHP, lu
 bob install nightly
 bob use nightly
 ```
+- Update your PATH.
 - If you have configured Neovim before, you might want to backup your configuration first.
 ```bash
 # required
