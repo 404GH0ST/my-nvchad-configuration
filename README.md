@@ -4,8 +4,9 @@ Neovim configuration for development in Rust, Python, Go, C, Javascript, PHP, lu
 ## Screenshot
 ![dashboard](https://i.ibb.co/MPSrkjC/image.png)
 ![lua_lsp](https://i.ibb.co/cQCdvZ4/image.png)
-![rust_lsp](https://i.ibb.co/JcdM632/image.png)
+![rust_lsp](https://i.imgur.com/poZKw5N.png)
 ![go_lsp](https://i.imgur.com/3nmnXln.png)
+![python_lsp](https://i.imgur.com/XJ8g9Ts.png)
 
 ## Installation
 - Make sure you have `composer`, `go`, `npm`, and `pip` installed so that Mason can download LSP, Linter, and other stuff.
