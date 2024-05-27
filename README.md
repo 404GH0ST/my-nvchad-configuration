@@ -5,16 +5,11 @@ Neovim configuration for development in Rust, Python, Go, C, Javascript, PHP, lu
 ![dashboard](https://i.ibb.co/MPSrkjC/image.png)
 ![lua_lsp](https://i.ibb.co/cQCdvZ4/image.png)
 ![rust_lsp](https://i.ibb.co/JcdM632/image.png)
+![go_lsp](https://i.imgur.com/3nmnXln.png)
 
 ## Installation
 - Make sure you have `composer`, `go`, `npm`, and `pip` installed so that Mason can download LSP, Linter, and other stuff.
-- Install the Neovim nightly build because the stable build doesn't support Inlay Hint.
-- I suggest using [bob](https://github.com/MordechaiHadad/bob) so that you can switch between stable and nightly builds.
-```bash
-bob install nightly
-bob use nightly
-```
-- Update your PATH.
+- Obviously, a neovim.
 - If you have configured Neovim before, you might want to backup your configuration first.
 ```bash
 # required
@@ -29,7 +24,7 @@ mv ~/.cache/nvim{,.bak}
 ```bash
 git clone https://github.com/404GH0ST/my-nvchad-configuration.git ~/.config/nvim && nvim
 ```
-- After Lazy finishes installing plugins, make sure to run `:MasonInstallAll` to install LSP and other stuff.
+- After Lazy finishes installing plugins, press `U` to update the plugins, and make sure to run `:MasonInstallAll` to install LSP and other stuff.
 
 ### PowerShell LSP
 To fully configure the PowerShell LSP, we need to download and extract PowerShellEditorServices.zip from the [releases](https://github.com/PowerShell/PowerShellEditorServices/releases) to `~/LSP/PowerShellEditorServices`.
