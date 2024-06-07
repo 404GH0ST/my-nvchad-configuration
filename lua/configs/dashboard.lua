@@ -1,6 +1,23 @@
 return {
 	theme = "hyper",
 	config = {
+		shortcut = {
+			{ desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
+			{
+				icon = " ",
+				icon_hl = "@variable",
+				desc = "Files",
+				group = "Label",
+				action = "Telescope find_files",
+				key = "f",
+			},
+			{
+				desc = " Mason",
+				group = "DiagnosticHint",
+				action = "Mason",
+				key = "m",
+			},
+		},
 		header = {
 			"",
 			"⣿⣿⣿⣿⣯⣿⣿⠄⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠈⣿⣿⣿⣿⣿⣿⣆⠄",
