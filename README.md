@@ -29,3 +29,5 @@ git clone https://github.com/404GH0ST/my-nvchad-configuration.git ~/.config/nvim
 
 ### PowerShell LSP
 To fully configure the PowerShell LSP, we need to download and extract PowerShellEditorServices.zip from the [releases](https://github.com/PowerShell/PowerShellEditorServices/releases) to `~/LSP/PowerShellEditorServices`.
+### AI Code Completion
+Optionally, you can uncomment the `codeium` plugin in `lua/plugins/init.lua` file to install `codeium.vim` plugin. Make sure to run `:Codeium Auth` to authenticate the plugin.
