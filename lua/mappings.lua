@@ -14,6 +14,22 @@ map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
 
 local mappings = {
 	n = {
+		["<C-h>"] = {
+			"<cmd> TmuxNavigateLeft<CR>",
+			"Left navigation tmux pane",
+		},
+		["<C-j>"] = {
+			"<cmd> TmuxNavigateDown<CR>",
+			"Down navigation tmux pane",
+		},
+		["<C-k>"] = {
+			"<cmd> TmuxNavigateUp<CR>",
+			"Up navigation tmux pane",
+		},
+		["<C-l>"] = {
+			"<cmd> TmuxNavigateRight<CR>",
+			"Right navigation tmux pane",
+		},
 		["<leader>db"] = {
 			"<cmd> DapToggleBreakpoint <CR>",
 			"Add breakpoint at line",

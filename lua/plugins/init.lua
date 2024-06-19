@@ -252,4 +252,8 @@ return {
 	-- 		end, { expr = true, silent = true })
 	-- 	end,
 	-- },
+	{
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
+	},
 }
