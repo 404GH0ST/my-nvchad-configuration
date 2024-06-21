@@ -43,6 +43,9 @@ local opt = {
 		"json-lsp",
 		"jsonlint",
 		"htmlbeautifier",
+		"jdtls",
+		"google-java-format",
+		"checkstyle",
 	},
 }
 

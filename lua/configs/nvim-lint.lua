@@ -4,6 +4,7 @@ local options = {
 	typescript = { "biomejs" },
 	c = { "cpplint" },
 	cpp = { "cpplint" },
+	java = { "checkstyle" },
 	docker = { "hadolint" },
 	html = { "htmlhint" },
 	python = { "mypy", "ruff" },

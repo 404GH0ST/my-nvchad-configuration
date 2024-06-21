@@ -178,6 +178,7 @@ return {
 				"lua",
 				"python",
 				"javascript",
+				"java",
 				"typescript",
 				"tsx",
 				"rust",
@@ -241,10 +242,10 @@ return {
 	-- 		vim.keymap.set("i", "<C-g>", function()
 	-- 			return vim.fn["codeium#Accept"]()
 	-- 		end, { expr = true, silent = true })
-	-- 		vim.keymap.set("i", "<c-;>", function()
+	-- 		vim.keymap.set("i", "<C-,>", function()
 	-- 			return vim.fn["codeium#CycleCompletions"](1)
 	-- 		end, { expr = true, silent = true })
-	-- 		vim.keymap.set("i", "<c-,>", function()
+	-- 		vim.keymap.set("i", "<C-.>", function()
 	-- 			return vim.fn["codeium#CycleCompletions"](-1)
 	-- 		end, { expr = true, silent = true })
 	-- 		vim.keymap.set("i", "<c-x>", function()
@@ -255,5 +256,9 @@ return {
 	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
+	},
+	{
+		"mfussenegger/nvim-jdtls",
+		ft = "java",
 	},
 }
