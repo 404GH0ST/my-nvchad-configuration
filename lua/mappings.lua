@@ -10,8 +10,6 @@ map("n", "<leader>fm", function()
 	require("conform").format()
 end, { desc = "File Format with conform" })
 
-map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
-
 local mappings = {
 	n = {
 		["<C-h>"] = {
@@ -29,6 +27,18 @@ local mappings = {
 		["<C-l>"] = {
 			"<cmd> TmuxNavigateRight<CR>",
 			"Right navigation tmux pane",
+		},
+		["<leader>co"] = {
+			"<cmd>lua require'jdtls'.organize_imports()<CR>",
+			"Organize Imports",
+		},
+		["<leader>crv"] = {
+			"<cmd>lua require('jdtls').extract_variable()<CR>",
+			"Extract Variable",
+		},
+		["<leader>crc"] = {
+			"<cmd>lua require('jdtls').extract_constant()<CR>",
+			"Extract Constant",
 		},
 		["<leader>db"] = {
 			"<cmd> DapToggleBreakpoint <CR>",
@@ -89,6 +99,14 @@ local mappings = {
 			end,
 			"Trigger linting for current file",
 		},
+	},
+	v = {
+		["<leader>crv"] = {
+			"<cmd>lua require('jdtls').extract_variable(true)<CR>",
+			"Extract Variable",
+		},
+		["<leader>crc"] = { "<cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },
+		["<leader>crm"] = { "<cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method" },
 	},
 }
 
