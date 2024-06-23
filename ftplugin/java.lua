@@ -1,3 +1,4 @@
+local on_attach = require("nvchad.configs.lspconfig").on_attach
 local home = os.getenv("HOME")
 local workspace_path = home .. "/.cache/jdtls/workspace/"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
@@ -12,6 +13,10 @@ end
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 
 local config = {
+	on_attach = function(client, bufnr)
+		client.server_capabilities.semanticTokensProvider = nil
+		on_attach(client, bufnr)
+	end,
 	-- The command that starts the language server
 	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
 	cmd = {
