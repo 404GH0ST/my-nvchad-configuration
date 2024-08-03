@@ -160,6 +160,7 @@ return {
 	{
 		"windwp/nvim-ts-autotag",
 		ft = {
+			"astro",
 			"javascript",
 			"javascriptreact",
 			"typescript",
@@ -176,6 +177,7 @@ return {
 			opts = require("nvchad.configs.treesitter")
 			opts.ensure_installed = {
 				"lua",
+				"astro",
 				"python",
 				"javascript",
 				"java",
@@ -222,16 +224,44 @@ return {
 	{
 		"mistricky/codesnap.nvim",
 		build = "make",
-		version = "^1",
 		lazy = true,
-		cmd = { "CodeSnap", "CodeSnapSave" },
+		keys = {
+			{ "<leader>sc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
+			{ "<leader>ss", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
+		},
 		config = function()
 			require("codesnap").setup({
 				has_breadcrumbs = true,
-				bg_theme = "summer",
-				save_path = "./idk.png",
+				save_path = "~/Pictures",
+				watermark = "",
+				bg_padding = 0,
 			})
 		end,
+	},
+	{
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
+	},
+	{
+		"mfussenegger/nvim-jdtls",
+		ft = "java",
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{
+		"folke/todo-comments.nvim",
+		event = "BufReadPost",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+		},
 	},
 	-- {
 	-- 	"Exafunction/codeium.vim",
@@ -253,12 +283,4 @@ return {
 	-- 		end, { expr = true, silent = true })
 	-- 	end,
 	-- },
-	{
-		"christoomey/vim-tmux-navigator",
-		lazy = false,
-	},
-	{
-		"mfussenegger/nvim-jdtls",
-		ft = "java",
-	},
 }
