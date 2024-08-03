@@ -5,6 +5,8 @@ local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 
 local servers = {
+	"astro",
+	"cssls",
 	"biome",
 	"tailwindcss",
 	"dockerls",
@@ -58,7 +60,7 @@ lspconfig.ruff_lsp.setup({
 	end,
 })
 
-lspconfig.pyright.setup({
+lspconfig.basedpyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -113,17 +115,10 @@ lspconfig.tsserver.setup({
 })
 
 lspconfig.biome.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 	cmd = { "biome", "lsp-proxy" },
-	filetypes = {
-		"javascript",
-		"javascriptreact",
-		"json",
-		"jsonc",
-		"typescript",
-		"typescript.tsx",
-		"typescriptreact",
-	},
-	root_dir = util.root_pattern("biome.json"),
+	root_dir = util.root_pattern("biome.json", "biome.jsonc"),
 	single_file_support = true,
 })
 

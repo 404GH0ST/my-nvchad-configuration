@@ -2,6 +2,9 @@ local options = require("nvchad.configs.mason")
 
 local opt = {
 	ensure_installed = {
+		"css-lsp",
+		"basedpyright",
+		"astro-language-server",
 		"lua-language-server",
 		"stylua",
 		"rust-analyzer",
@@ -10,7 +13,6 @@ local opt = {
 		"mypy",
 		"ruff",
 		"ruff-lsp",
-		"pyright",
 		"debugpy",
 		"gopls",
 		"goimports",
