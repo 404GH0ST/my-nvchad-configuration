@@ -14,12 +14,6 @@ return {
 		},
 	},
 	{
-		"williamboman/mason.nvim",
-		opts = function()
-			return require("configs.mason")
-		end,
-	},
-	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			inlay_hints = { enabled = true },
@@ -174,7 +168,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = function()
-			opts = require("nvchad.configs.treesitter")
+			local opts = require("nvchad.configs.treesitter")
 			opts.ensure_installed = {
 				"lua",
 				"astro",
