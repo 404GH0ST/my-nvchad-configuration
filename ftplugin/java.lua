@@ -3,6 +3,8 @@ local home = os.getenv("HOME")
 local workspace_path = home .. "/.cache/jdtls/workspace/"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = workspace_path .. project_name
+local launcher_path =
+	vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
 
 local status, jdtls = pcall(require, "jdtls")
 if not status then
@@ -40,8 +42,7 @@ local config = {
 
 		-- 💀
 		"-jar",
-		home
-			.. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar",
+		launcher_path,
 		-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
 		-- Must point to the                                                     Change this to
 		-- eclipse.jdt.ls installation                                           the actual version
