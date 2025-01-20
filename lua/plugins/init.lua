@@ -25,7 +25,7 @@ return {
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^4", -- Recommended
+		version = "^5", -- Recommended
 		dependencies = "neovim/nvim-lspconfig",
 		ft = { "rust" },
 		config = function()
@@ -236,6 +236,13 @@ return {
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},
+	-- Lazy.nvim
+	-- {
+	-- 	"hiasr/vim-zellij-navigator.nvim",
+	-- 	config = function()
+	-- 		require("vim-zellij-navigator").setup()
+	-- 	end,
+	-- },
 	{
 		"mfussenegger/nvim-jdtls",
 		ft = "java",
@@ -257,24 +264,58 @@ return {
 			-- or leave it empty to use the default settings
 		},
 	},
+	{
+		"Exafunction/codeium.vim",
+		event = "BufEnter",
+		config = function()
+			vim.g.codeium_disable_bindings = 1
+			-- Change '<C-g>' here to any keycode you like.
+			vim.keymap.set("i", "<C-f>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<C-,>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<C-.>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<c-x>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true, silent = true })
+		end,
+	},
 	-- {
-	-- 	"Exafunction/codeium.vim",
-	-- 	event = "BufEnter",
+	-- 	"supermaven-inc/supermaven-nvim",
+	-- 	lazy = false,
 	-- 	config = function()
-	-- 		vim.g.codeium_disable_bindings = 1
-	-- 		-- Change '<C-g>' here to any keycode you like.
-	-- 		vim.keymap.set("i", "<C-g>", function()
-	-- 			return vim.fn["codeium#Accept"]()
-	-- 		end, { expr = true, silent = true })
-	-- 		vim.keymap.set("i", "<C-,>", function()
-	-- 			return vim.fn["codeium#CycleCompletions"](1)
-	-- 		end, { expr = true, silent = true })
-	-- 		vim.keymap.set("i", "<C-.>", function()
-	-- 			return vim.fn["codeium#CycleCompletions"](-1)
-	-- 		end, { expr = true, silent = true })
-	-- 		vim.keymap.set("i", "<c-x>", function()
-	-- 			return vim.fn["codeium#Clear"]()
-	-- 		end, { expr = true, silent = true })
+	-- 		require("supermaven-nvim").setup({
+	-- 			keymaps = {
+	-- 				accept_suggestion = "<C-f>",
+	-- 				clear_suggestion = "<C-]>",
+	-- 				accept_word = "<C-j>",
+	-- 			},
+	-- 			-- disable_keymaps = true,
+	-- 		})
 	-- 	end,
 	-- },
+	{
+		"karb94/neoscroll.nvim",
+		lazy = false,
+		opts = {},
+	},
+	{
+		"Bekaboo/dropbar.nvim",
+		lazy = false,
+		-- optional, but required for fuzzy finder support
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
+		config = function()
+			local dropbar_api = require("dropbar.api")
+			vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
+			vim.keymap.set("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
+			vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
+		end,
+	},
 }

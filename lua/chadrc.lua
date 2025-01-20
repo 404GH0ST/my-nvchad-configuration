@@ -25,7 +25,6 @@ M.mason = {
 		"nomicfoundation-solidity-language-server",
 		"mypy",
 		"ruff",
-		"ruff-lsp",
 		"pyright",
 		"debugpy",
 		"gopls",

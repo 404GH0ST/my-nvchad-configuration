@@ -1,5 +1,9 @@
 vim.g.base46_cache = vim.fn.stdpath("data") .. "/nvchad/base46/"
 vim.g.mapleader = " "
+vim.g.neovide_fullscreen = true
+vim.g.neovide_refresh_rate = 144
+vim.g.neovide_padding_bottom = 0
+vim.o.guifont = "JetBrainsMono Nerd Font:h14" -- text below applies for VimScript
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

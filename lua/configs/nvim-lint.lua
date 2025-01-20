@@ -4,13 +4,15 @@ local options = {
 	typescript = { "biomejs" },
 	c = { "cpplint" },
 	cpp = { "cpplint" },
-	java = { "checkstyle" },
 	docker = { "hadolint" },
 	html = { "htmlhint" },
 	python = { "mypy", "ruff" },
 	php = { "phpstan" },
+	proto = { "buf_lint" },
 	ansible = { "ansible_lint" },
 	go = { "golangcilint" },
+	sql = { "sqlfluff" },
+	yaml = { "yamllint" },
 }
 
 require("lint").linters_by_ft = options

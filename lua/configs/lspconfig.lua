@@ -19,6 +19,11 @@ local servers = {
 	"htmx",
 	"jsonls",
 	"templ",
+	"vuels",
+	"sqls",
+	"protols",
+	"yamlls",
+	"zls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -54,13 +59,13 @@ lspconfig.bashls.setup({
 	filetypes = { "sh", "zsh" },
 })
 
-lspconfig.ruff_lsp.setup({
+lspconfig.ruff.setup({
 	on_attach = function(client, bufnr)
 		client.server_capabilities.hoverProvider = false
 	end,
 })
 
-lspconfig.basedpyright.setup({
+lspconfig.pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -125,6 +130,7 @@ lspconfig.biome.setup({
 lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 })
 
 lspconfig.intelephense.setup({

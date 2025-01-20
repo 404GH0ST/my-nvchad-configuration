@@ -13,11 +13,14 @@ local options = {
 		cpp = { "clang_format" },
 		python = { "ruff_format" },
 		sh = { "shfmt" },
+		sql = { "sql_formatter" },
 		java = { "google-java-format" },
 		-- shfmt doesn't support zsh yet
 		-- zsh = { "shfmt" },
 		xml = { "xmlformat" },
 		html = { "htmlbeautifier" },
+		proto = { "buf" },
+		yaml = { "yamlfmt" },
 	},
 }
 
