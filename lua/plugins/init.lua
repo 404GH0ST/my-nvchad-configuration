@@ -26,11 +26,10 @@ return {
 	{
 		"mrcjkb/rustaceanvim",
 		version = "^5", -- Recommended
-		dependencies = "neovim/nvim-lspconfig",
-		ft = { "rust" },
-		config = function()
-			require("configs.rustaceanvim")
-		end,
+		-- config = function()
+		-- 	require("configs.rustaceanvim")
+		-- end,
+		lazy = false,
 	},
 	{
 		"mfussenegger/nvim-dap",
@@ -100,13 +99,6 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("neocord").setup(require("configs.neocord"))
-		end,
-	},
-	{
-		"rust-lang/rust.vim",
-		ft = "rust",
-		init = function()
-			vim.g.rustfmt_autosave = 1
 		end,
 	},
 	{
@@ -232,10 +224,10 @@ return {
 			})
 		end,
 	},
-	{
-		"christoomey/vim-tmux-navigator",
-		lazy = false,
-	},
+	-- {
+	-- 	"christoomey/vim-tmux-navigator",
+	-- 	lazy = false,
+	-- },
 	-- Lazy.nvim
 	-- {
 	-- 	"hiasr/vim-zellij-navigator.nvim",
@@ -248,11 +240,22 @@ return {
 		ft = "java",
 	},
 	{
+		-- Install markdown preview, use npx if available.
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
+		build = function(plugin)
+			if vim.fn.executable("npx") then
+				vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install")
+			else
+				vim.cmd([[Lazy load markdown-preview.nvim]])
+				vim.fn["mkdp#util#install"]()
+			end
+		end,
+		init = function()
+			if vim.fn.executable("npx") then
+				vim.g.mkdp_filetypes = { "markdown" }
+			end
 		end,
 	},
 	{
@@ -264,40 +267,40 @@ return {
 			-- or leave it empty to use the default settings
 		},
 	},
-	{
-		"Exafunction/codeium.vim",
-		event = "BufEnter",
-		config = function()
-			vim.g.codeium_disable_bindings = 1
-			-- Change '<C-g>' here to any keycode you like.
-			vim.keymap.set("i", "<C-f>", function()
-				return vim.fn["codeium#Accept"]()
-			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<C-,>", function()
-				return vim.fn["codeium#CycleCompletions"](1)
-			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<C-.>", function()
-				return vim.fn["codeium#CycleCompletions"](-1)
-			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<c-x>", function()
-				return vim.fn["codeium#Clear"]()
-			end, { expr = true, silent = true })
-		end,
-	},
 	-- {
-	-- 	"supermaven-inc/supermaven-nvim",
-	-- 	lazy = false,
+	-- 	"Exafunction/codeium.vim",
+	-- 	event = "BufEnter",
 	-- 	config = function()
-	-- 		require("supermaven-nvim").setup({
-	-- 			keymaps = {
-	-- 				accept_suggestion = "<C-f>",
-	-- 				clear_suggestion = "<C-]>",
-	-- 				accept_word = "<C-j>",
-	-- 			},
-	-- 			-- disable_keymaps = true,
-	-- 		})
+	-- 		vim.g.codeium_disable_bindings = 1
+	-- 		-- Change '<C-g>' here to any keycode you like.
+	-- 		vim.keymap.set("i", "<C-f>", function()
+	-- 			return vim.fn["codeium#Accept"]()
+	-- 		end, { expr = true, silent = true })
+	-- 		vim.keymap.set("i", "<C-,>", function()
+	-- 			return vim.fn["codeium#CycleCompletions"](1)
+	-- 		end, { expr = true, silent = true })
+	-- 		vim.keymap.set("i", "<C-.>", function()
+	-- 			return vim.fn["codeium#CycleCompletions"](-1)
+	-- 		end, { expr = true, silent = true })
+	-- 		vim.keymap.set("i", "<c-x>", function()
+	-- 			return vim.fn["codeium#Clear"]()
+	-- 		end, { expr = true, silent = true })
 	-- 	end,
 	-- },
+	{
+		"supermaven-inc/supermaven-nvim",
+		lazy = false,
+		config = function()
+			require("supermaven-nvim").setup({
+				keymaps = {
+					accept_suggestion = "<C-f>",
+					clear_suggestion = "<C-]>",
+					accept_word = "<C-j>",
+				},
+				-- disable_keymaps = true,
+			})
+		end,
+	},
 	{
 		"karb94/neoscroll.nvim",
 		lazy = false,

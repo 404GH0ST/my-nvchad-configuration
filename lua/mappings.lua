@@ -12,22 +12,22 @@ end, { desc = "File Format with conform" })
 
 local mappings = {
 	n = {
-		["<C-h>"] = {
-			"<cmd> TmuxNavigateLeft<CR>",
-			"Left navigation tmux pane",
-		},
-		["<C-j>"] = {
-			"<cmd> TmuxNavigateDown<CR>",
-			"Down navigation tmux pane",
-		},
-		["<C-k>"] = {
-			"<cmd> TmuxNavigateUp<CR>",
-			"Up navigation tmux pane",
-		},
-		["<C-l>"] = {
-			"<cmd> TmuxNavigateRight<CR>",
-			"Right navigation tmux pane",
-		},
+		-- ["<C-h>"] = {
+		-- 	"<cmd> TmuxNavigateLeft<CR>",
+		-- 	"Left navigation tmux pane",
+		-- },
+		-- ["<C-j>"] = {
+		-- 	"<cmd> TmuxNavigateDown<CR>",
+		-- 	"Down navigation tmux pane",
+		-- },
+		-- ["<C-k>"] = {
+		-- 	"<cmd> TmuxNavigateUp<CR>",
+		-- 	"Up navigation tmux pane",
+		-- },
+		-- ["<C-l>"] = {
+		-- 	"<cmd> TmuxNavigateRight<CR>",
+		-- 	"Right navigation tmux pane",
+		-- },
 		["<leader>co"] = {
 			"<cmd>lua require'jdtls'.organize_imports()<CR>",
 			"Organize Imports",
