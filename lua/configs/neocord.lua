@@ -10,6 +10,7 @@ local opts = {
 	file_assets = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
 	show_time = true, -- Show the timer
 	global_timer = true, -- if set true, timer won't update when any event are triggered
+	buttons = nil, -- A list of buttons (objects with label and url attributes) or a function returning such list.
 
 	-- Rich Presence text options
 	custom_distro_text = nil, -- Set custom distro name when logo is hovered, string or nil
