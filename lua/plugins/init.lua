@@ -1,5 +1,7 @@
 local cmp = require("cmp")
+
 return {
+	import = "nvchad.blink.lazyspec",
 	{
 		"stevearc/conform.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -25,10 +27,10 @@ return {
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^5", -- Recommended
-		-- config = function()
-		-- 	require("configs.rustaceanvim")
-		-- end,
+		version = "^6", -- Recommended
+		config = function()
+			require("configs.rustaceanvim")
+		end,
 		lazy = false,
 	},
 	{
@@ -84,14 +86,9 @@ return {
 	},
 	{
 		"saecki/crates.nvim",
-		ft = { "toml" },
-		config = function(_, opts)
-			local crates = require("crates")
-			crates.setup(opts)
-			require("cmp").setup.buffer({
-				sources = { { name = "crates" } },
-			})
-			crates.show()
+		event = { "BufRead Cargo.toml" },
+		config = function()
+			require("crates").setup()
 		end,
 	},
 	{
@@ -162,6 +159,8 @@ return {
 		opts = function()
 			local opts = require("nvchad.configs.treesitter")
 			opts.ensure_installed = {
+				"zig",
+				"asm",
 				"lua",
 				"astro",
 				"python",

@@ -2,7 +2,7 @@
 local M = {}
 
 M.base46 = {
-	theme = "catppuccin",
+	theme = "tokyonight",
 
 	hl_override = {
 		Comment = { italic = true },
@@ -23,9 +23,8 @@ M.mason = {
 		"rust-analyzer",
 		"vscode-solidity-server",
 		"nomicfoundation-solidity-language-server",
-		"mypy",
 		"ruff",
-		"pyright",
+		"pyrefly",
 		"debugpy",
 		"gopls",
 		"goimports",
@@ -63,6 +62,9 @@ M.mason = {
 		"checkstyle",
 		"astro-language-server",
 		"css-lsp",
+		"taplo",
+		"asm-lsp",
+		"asmfmt",
 	},
 }
 return M

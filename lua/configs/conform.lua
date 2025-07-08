@@ -5,6 +5,8 @@ local options = {
 	},
 
 	formatters_by_ft = {
+		asm = { "asmfmt" },
+		arm = { "asmfmt" },
 		lua = { "stylua" },
 		php = { "php_cs_fixer" },
 		go = { "gofumpt", "goimports", "golines" },
@@ -21,6 +23,7 @@ local options = {
 		html = { "htmlbeautifier" },
 		proto = { "buf" },
 		yaml = { "yamlfmt" },
+		toml = { "taplo" },
 	},
 }
 
