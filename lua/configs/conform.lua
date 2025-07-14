@@ -11,6 +11,9 @@ local options = {
 		php = { "php_cs_fixer" },
 		go = { "gofumpt", "goimports", "golines" },
 		javascript = { "biome" },
+		javascriptreact = { "biome" },
+		typescript = { "biome" },
+		typescriptreact = { "biome" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
 		python = { "ruff_format" },
@@ -24,6 +27,8 @@ local options = {
 		proto = { "buf" },
 		yaml = { "yamlfmt" },
 		toml = { "taplo" },
+		json = { "biome" },
+		jsonc = { "biome" },
 	},
 }
 

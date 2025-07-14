@@ -1,7 +1,10 @@
 local options = {
 	javascript = { "biomejs" },
+	javascriptreact = { "biomejs" },
 	json = { "biomejs" },
+	jsonc = { "biomejs" },
 	typescript = { "biomejs" },
+	typescriptreact = { "biomejs" },
 	c = { "cpplint" },
 	cpp = { "cpplint" },
 	docker = { "hadolint" },
