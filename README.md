@@ -9,7 +9,16 @@ Neovim configuration for development in Rust, Python, Go, C, Javascript, PHP, lu
 ![python_lsp](https://i.imgur.com/XJ8g9Ts.png)
 
 ## Installation
-- Make sure you have `composer`, `go`, `npm`, and `pip` installed so that Mason can download LSP, Linter, and other stuff.
+- Make sure you have `cargo`, `composer`, `go`, `npm`, and `pip` installed so that Mason can download LSP, Linter, and other stuff.
+### Arch Based Installation
+```bash
+sudo pacman -S uv rustup composer go npm python-pip cmake
+
+rustup install nightly
+cargo install cargo-binstall
+
+uv tool install vectorcode
+```
 - Obviously, a neovim.
 - If you have configured Neovim before, you might want to backup your configuration first.
 ```bash
@@ -30,4 +39,7 @@ git clone https://github.com/404GH0ST/my-nvchad-configuration.git ~/.config/nvim
 ### PowerShell LSP
 To fully configure the PowerShell LSP, we need to download and extract PowerShellEditorServices.zip from the [releases](https://github.com/PowerShell/PowerShellEditorServices/releases) to `~/LSP/PowerShellEditorServices`.
 ### AI Code Completion
-Optionally, you can uncomment the `codeium` plugin in `lua/plugins/init.lua` file to install `codeium.vim` plugin. Make sure to run `:Codeium Auth` to authenticate the plugin.
+It currently uses `supermaven` for AI code completion. You can switch to `windsurf` if you want; just uncomment the `windsurf` plugin section and comment the `supermaven` plugin. For usage, refer to [windsurf.vim](https://github.com/Exafunction/windsurf.vim) and [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim).
+
+### Agentic AI
+It currently uses `codecompaion` and `mcphub` for agentic use cases. For usage, refer to [codecompaion](https://github.com/olimorris/codecompanion.nvim) and [mcphub](https://github.com/ravitemer/mcphub.nvim). The current configuration uses Google Gemini model, you need to setup your `API_KEY` according to this discussion [GnuPG gpg](https://github.com/olimorris/codecompanion.nvim/discussions/601)

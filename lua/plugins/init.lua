@@ -115,6 +115,7 @@ return {
 				select = false,
 			})
 			table.insert(M.sources, { name = "crates" })
+			table.insert(M.sources, { per_filetype = { codecompanion = { "codecompanion" } } })
 			return M
 		end,
 	},
@@ -267,7 +268,7 @@ return {
 		},
 	},
 	-- {
-	-- 	"Exafunction/codeium.vim",
+	-- 	"Exafunction/windsurf.vim",
 	-- 	event = "BufEnter",
 	-- 	config = function()
 	-- 		vim.g.codeium_disable_bindings = 1
@@ -318,6 +319,55 @@ return {
 			vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
 			vim.keymap.set("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
 			vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
+		end,
+	},
+	{
+		"olimorris/codecompanion.nvim", -- The KING of AI programming
+		cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions" },
+		dependencies = {
+			"j-hui/fidget.nvim", -- Display status
+			"ravitemer/codecompanion-history.nvim", -- Save and load conversation history
+			{
+				"ravitemer/mcphub.nvim", -- Manage MCP servers
+				cmd = "MCPHub",
+				build = "npm install -g mcp-hub@latest",
+				config = true,
+			},
+			{
+				"Davidyz/VectorCode", -- Index and search code in your repositories
+				version = "*",
+				build = "uv tool install vectorcode",
+				dependencies = { "nvim-lua/plenary.nvim" },
+			},
+			{
+				"HakonHarnes/img-clip.nvim", -- Share images with the chat buffer
+				event = "VeryLazy",
+				cmd = "PasteImage",
+				opts = {
+					filetypes = {
+						codecompanion = {
+							prompt_for_file_name = false,
+							template = "[Image]($FILE_PATH)",
+							use_absolute_path = true,
+						},
+					},
+				},
+			},
+		},
+		opts = require("configs.codecompanion"),
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = { "markdown", "codecompanion" },
+	},
+	{
+		"echasnovski/mini.diff",
+		config = function()
+			local diff = require("mini.diff")
+			diff.setup({
+				-- Disabled by default
+				source = diff.gen_source.none(),
+			})
 		end,
 	},
 	{
