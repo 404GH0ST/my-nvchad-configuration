@@ -174,6 +174,7 @@ return {
 				"go",
 				"bash",
 				"c",
+				"c_sharp",
 				"cpp",
 				"dockerfile",
 				"css",

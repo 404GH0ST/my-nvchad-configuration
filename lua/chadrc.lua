@@ -65,6 +65,8 @@ M.mason = {
 		"taplo",
 		"asm-lsp",
 		"asmfmt",
+		"omnisharp",
+		"csharpier",
 	},
 }
 return M

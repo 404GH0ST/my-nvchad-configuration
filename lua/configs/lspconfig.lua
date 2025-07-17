@@ -13,6 +13,9 @@ local servers = {
 	solidity_ls_nomicfoundation = {},
 	solidity_ls = {},
 	lemminx = {},
+	omnisharp = {
+		single_file_support = true,
+	},
 	html = {},
 	htmx = {},
 	jsonls = {},

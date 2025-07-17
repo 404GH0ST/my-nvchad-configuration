@@ -16,6 +16,7 @@ local options = {
 		typescriptreact = { "biome" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
+		csharp = { "csharpier" },
 		python = { "ruff_format" },
 		sh = { "shfmt" },
 		sql = { "sql_formatter" },
