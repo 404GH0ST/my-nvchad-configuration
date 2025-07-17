@@ -28,6 +28,10 @@ local mappings = {
 		-- 	"<cmd> TmuxNavigateRight<CR>",
 		-- 	"Right navigation tmux pane",
 		-- },
+		["<leader>rca"] = {
+			"<cmd>RustLsp codeAction<CR>",
+			"Rust Grouped Actions",
+		},
 		["<leader>co"] = {
 			"<cmd>lua require'jdtls'.organize_imports()<CR>",
 			"Organize Imports",
