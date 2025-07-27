@@ -16,11 +16,13 @@ local servers = {
 	omnisharp = {
 		single_file_support = true,
 	},
+	prismals = {},
 	html = {},
 	htmx = {},
 	jsonls = {},
 	templ = {},
 	vuels = {},
+	qmlls = {},
 	sqls = {},
 	protols = {},
 	yamlls = {},

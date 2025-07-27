@@ -2,7 +2,7 @@
 local M = {}
 
 M.base46 = {
-	theme = "tokyonight",
+	theme = "catppuccin",
 
 	hl_override = {
 		Comment = { italic = true },
@@ -67,6 +67,7 @@ M.mason = {
 		"asmfmt",
 		"omnisharp",
 		"csharpier",
+		"prisma-language-server",
 	},
 }
 return M

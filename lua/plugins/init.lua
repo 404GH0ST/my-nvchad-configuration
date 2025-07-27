@@ -204,6 +204,8 @@ return {
 				"yaml",
 				"vim",
 				"vimdoc",
+				"qmljs",
+				"prisma",
 			}
 			return opts
 		end,
@@ -385,5 +387,9 @@ return {
 				end,
 			},
 		},
+	},
+	{
+		"xiyaowong/transparent.nvim",
+		lazy = false,
 	},
 }
