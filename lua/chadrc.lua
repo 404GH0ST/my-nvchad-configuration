@@ -19,6 +19,7 @@ M.ui = {
 
 M.mason = {
 	pkgs = {
+		"lua-language-server",
 		"stylua",
 		"rust-analyzer",
 		"vscode-solidity-server",
